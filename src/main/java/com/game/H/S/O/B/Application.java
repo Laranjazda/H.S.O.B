@@ -1,22 +1,30 @@
 package com.game.H.S.O.B;
 
-import com.mongodb.DBCursor;
-import connection.GameDAO;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.net.UnknownHostException;
+import com.mongodb.MongoClient;
+import com.mongodb.client.MongoDatabase;
 
-@SpringBootApplication
 public class Application {
 	public static void main(String[] args) {
-		GameDAO gameDAO =  new GameDAO ();
-
-		//Ler dados
-		DBCursor cursor = gameDAO.collection.find();
-		while (cursor.hasNext()){
-			System.out.println(cursor.next());
+		try{
+			MongoClient mongoClient = new MongoClient("mongodb+srv://laranjazda:B@tataFrut@1979@gamehsob.siuyj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
+			MongoDatabase database = mongoClient.getDatabase ("test");
+			System.out.println ("Conexão realizada!");
+		}catch (Exception e){
+			System.out.println ("Erro: "+e);
 		}
+
+
+
+
+
+//		GameDAO gameDAO =  new GameDAO ();
+
+//		//Ler dados
+//		DBCursor cursor = gameDAO.collection.find();
+//		while (cursor.hasNext()){
+//			System.out.println(cursor.next());
+//		}
 	}
 
 
