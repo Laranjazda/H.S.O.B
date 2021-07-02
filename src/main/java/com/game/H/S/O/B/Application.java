@@ -1,31 +1,19 @@
 package com.game.H.S.O.B;
 
-
-import com.mongodb.MongoClient;
-import com.mongodb.client.MongoDatabase;
+import HeroClass.Warrior;
 
 public class Application {
 	public static void main(String[] args) {
-		try{
-			MongoClient mongoClient = new MongoClient("mongodb+srv://laranjazda:B@tataFrut@1979@gamehsob.siuyj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
-			MongoDatabase database = mongoClient.getDatabase ("test");
-			System.out.println ("Conexão realizada!");
-		}catch (Exception e){
-			System.out.println ("Erro: "+e);
-		}
 
-
-
-
-
-//		GameDAO gameDAO =  new GameDAO ();
-
-//		//Ler dados
-//		DBCursor cursor = gameDAO.collection.find();
-//		while (cursor.hasNext()){
-//			System.out.println(cursor.next());
-//		}
+		Warrior warrior = new Warrior ("João", "Masculno",	0,0,10);
+		warrior.setWarrior_attack (20);
+		System.out.println ("==========================="
+				+ "\nNome: " + warrior.getName ()
+				+ "\nGênero: " + warrior.getGender ()
+				+ "\nLevel: " + warrior.getCharacter_level ()
+				+ "\nExperiência: " + warrior.getExperience ()
+				+ "\nVida Máxima: " + warrior.getMaximum_life ()
+				+ "\nAtaque: " + warrior.getWarrior_attack ()
+				+ "\n===========================");
 	}
-
-
 }
