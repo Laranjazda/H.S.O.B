@@ -119,26 +119,16 @@ public class Heroes {
 
     public void skills(){
         Random random = new Random ();
-        this.agility += 5 * random.nextInt(15);
-        this.defense +=  5 * random.nextInt (15);
-        this.strength += 2 * random.nextInt (15);
+        int agi = 8 + random.nextInt(9);
+        int def =  8 + random.nextInt (9);
+        int str = 36 - agi - def;
+
+        this.agility += agi;
+        this.defense += def;
+        this.strength += str;
     }
 
     //info
-//    public void getInfo() {
-//        System.out.println (
-//                "Nome:" + this.name.toUpperCase ()
-//                + "\nGenero:" + this.getGender ()
-//                + "\nTipo: " + this.getType ()
-//                + "\nAgilidade: " + this.getAgility ()
-//                + "\nDefesa: " + this.getDefense ()
-//                + "\nForça: " + this.getStrength ()
-//                + "\nDano: " + this.getDamage ()
-//                + "\nHP: " + this.getHp ()
-//                + "\nStamina: " + this.getStamina ()
-//        );
-//    }
-
     @Override
     public String toString() {
         JSONObject data = new JSONObject ();
@@ -155,7 +145,7 @@ public class Heroes {
         } catch (JSONException e) {
             e.printStackTrace ();
         }
-        return data.toString ();
+        return data.toString ().strip ();
     }
 
 }

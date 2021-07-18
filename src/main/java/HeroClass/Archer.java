@@ -7,10 +7,10 @@ public abstract class Archer extends Heroes {
         this.name = name;
         this.gender = gender;
         this.type = "Archer";
-        this.skills ();
-        this.setAgility (8);
+        this.setAgility (5);
         this.setDefense (5);
         this.setStrength (5);
+        this.skills ();
         this.setDamage (this.getStrength () + this.getAgility ());
         this.setHp (this.getStrength () + this.getDefense ());
         this.setStamina (this.getDefense () + this.getAgility ());
