@@ -1,19 +1,24 @@
 package com.game.H.S.O.B;
 
-import HeroClass.Warrior;
+import HeroClass.*;
+import org.json.JSONException;
 
 public class Application {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws JSONException {
+		Archer personagem1 = new Archer ("Carlos", "Masculino") {};
+		Warrior personagem2 = new Warrior ("Maria", "Feminino") {};
+		Healer personagem3 = new Healer ("Regina", "Feminino") {};
+		Mage personagem4 = new Mage ("João", "Masculino") {};
+		Tanker personagem5 = new Tanker ("Adhemar", "Masculino") {};
 
-		Warrior warrior = new Warrior ("João", "Masculno",	0,0,10);
-		warrior.setWarrior_attack (20);
-		System.out.println ("==========================="
-				+ "\nNome: " + warrior.getName ()
-				+ "\nGênero: " + warrior.getGender ()
-				+ "\nLevel: " + warrior.getCharacter_level ()
-				+ "\nExperiência: " + warrior.getExperience ()
-				+ "\nVida Máxima: " + warrior.getMaximum_life ()
-				+ "\nAtaque: " + warrior.getWarrior_attack ()
-				+ "\n===========================");
+
+		System.out.println (personagem1);
+		System.out.println (personagem2);
+		System.out.println (personagem3);
+		System.out.println (personagem4);
+		System.out.println (personagem5);
+//
+
+
 	}
 }

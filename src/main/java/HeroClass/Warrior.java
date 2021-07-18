@@ -1,19 +1,18 @@
 package HeroClass;
 
-import characters.Hero;
+import characters.Heroes;
 
-public class Warrior extends Hero{
-    int warrior_attack;
-
-    public Warrior(String name, String gender, int character_level, float experience, float maximum_life) {
-        super (name, gender, character_level, experience, maximum_life);
-    }
-
-    public int getWarrior_attack() {
-        return warrior_attack;
-    }
-
-    public void setWarrior_attack(int warrior_attack) {
-        this.warrior_attack = warrior_attack;
+public abstract class Warrior extends Heroes {
+    protected Warrior(String name, String gender) {
+        this.name = name;
+        this.gender = gender;
+        this.type = "Warrior";
+        this.setAgility (8);
+        this.setDefense (8);
+        this.setStrength (8);
+        this.skills ();
+        this.setDamage (this.getStrength () + this.getAgility ());
+        this.setHp (this.getStrength () + this.getDefense ());
+        this.setStamina (this.getDefense () + this.getAgility ());
     }
 }
