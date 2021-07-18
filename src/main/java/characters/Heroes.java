@@ -1,10 +1,8 @@
 package characters;
 
-import org.bson.json.JsonObject;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.DecimalFormat;
 import java.util.Random;
 
 public class Heroes {
@@ -70,18 +68,18 @@ public class Heroes {
     }
     //getters
 
-    DecimalFormat df = new DecimalFormat("####0.00");
+//    DecimalFormat df = new DecimalFormat("####0.00");
 
     public String getName() {
-        return df.format (name);
+        return name;
     }
 
     public String getGender() {
-        return df.format (gender);
+        return gender;
     }
 
     public String getType() {
-        return df.format (type);
+        return type;
     }
 
 //    public int getCharacter_level() {
@@ -116,41 +114,49 @@ public class Heroes {
         return stamina;
     }
 
-    @Override
-    public String toString() {
-        return "Heroes{" +
-                "name='" + name + '\'' +
-                ", gender='" + gender + '\'' +
-                ", type='" + type + '\'' +
-                ", agility=" + agility +
-                ", defense=" + defense +
-                ", strength=" + strength +
-                ", damage=" + damage +
-                ", hp=" + hp +
-                ", stamina=" + stamina +
-                '}';
-    }
 
     //atributos
-    Random random = new Random ();
+
     public void skills(){
-        this.agility += 8 + random.nextInt(9);
-        this.defense += 8 +random.nextInt (7);
-        this.strength += 36 + random.nextInt (5);
+        Random random = new Random ();
+        this.agility += 5 * random.nextInt(15);
+        this.defense +=  5 * random.nextInt (15);
+        this.strength += 2 * random.nextInt (15);
     }
 
     //info
-    public void getInfo() {
-        System.out.println ("Nome:" + this.name.toUpperCase ()
-                + "\nGenero:" + this.getGender ()
-                + "\nTipo: " + this.getType ()
-                + "\nAgilidade: " + this.getAgility ()
-                + "\nDefesa: " + this.getDefense ()
-                + "\nForça: " + this.getStrength ()
-                + "\nDano: " + this.getDamage ()
-                + "\nHP: " + this.getHp ()
-                + "\nStamina: " + this.getStamina ()
-        );
+//    public void getInfo() {
+//        System.out.println (
+//                "Nome:" + this.name.toUpperCase ()
+//                + "\nGenero:" + this.getGender ()
+//                + "\nTipo: " + this.getType ()
+//                + "\nAgilidade: " + this.getAgility ()
+//                + "\nDefesa: " + this.getDefense ()
+//                + "\nForça: " + this.getStrength ()
+//                + "\nDano: " + this.getDamage ()
+//                + "\nHP: " + this.getHp ()
+//                + "\nStamina: " + this.getStamina ()
+//        );
+//    }
+
+    @Override
+    public String toString() {
+        JSONObject data = new JSONObject ();
+        try {
+            data.put ("Nome", this.getName ());
+            data.put ("Genero", this.getGender ());
+            data.put ("Tipo", this.getType ());
+            data.put ("Agilidade", this.getAgility ());
+            data.put ("Defesa", this.getDefense ());
+            data.put ("Força", this.getStrength ());
+            data.put ("Dano", this.getDamage ());
+            data.put ("HP",this.getHp ());
+            data.put ("Stamina", this.getStamina ());
+        } catch (JSONException e) {
+            e.printStackTrace ();
+        }
+        return data.toString ();
     }
+
 }
 
