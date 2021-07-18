@@ -1,5 +1,18 @@
 package HeroClass;
 
-public class Archer {
+import characters.Heroes;
 
+public abstract class Archer extends Heroes {
+    protected Archer(String name, String gender) {
+        this.name = name;
+        this.gender = gender;
+        this.type = "Archer";
+        this.setAgility (5);
+        this.setDefense (12);
+        this.setStrength (8);
+        this.skills ();
+        this.setDamage (this.getStrength () + this.getAgility ());
+        this.setHp (this.getStrength () + this.getDefense ());
+        this.setStamina (this.getDefense () + this.getAgility ());
+    }
 }
